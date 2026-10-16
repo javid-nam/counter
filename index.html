@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>COUNTER ARENA — Tactical FPS</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<section id="menu" class="overlay">
+  <div class="brand">COUNTER<span>ARENA</span></div><div class="eyebrow">TACTICAL FPS · OFFLINE</div>
+  <h1>ورود به میدان نبرد</h1><p class="intro">یک نقشه‌ی پیوسته، دشمن‌های مسلح و جای‌گیری متفاوت در هر شروع. سلاح‌هایت را انتخاب کن و وارد شو.</p>
+  <div class="loadout-title">انتخاب سلاح اصلی</div><div id="weaponSelect" class="weapon-grid">
+    <button class="weapon-card selected" data-weapon="awp"><b>AWP / LW</b><span>اسنایپر دقیق · آسیب بسیار بالا</span></button>
+    <button class="weapon-card" data-weapon="ak"><b>AK-47</b><span>کلاش · قدرت بالا و لگد بیشتر</span></button>
+    <button class="weapon-card" data-weapon="m4"><b>M4A1</b><span>رگبار کنترل‌پذیر</span></button>
+    <button class="weapon-card" data-weapon="scout"><b>SCOUT</b><span>اسنایپر سبک و سریع</span></button>
+    <button class="weapon-card" data-weapon="smg"><b>MP5</b><span>نرخ شلیک بالا</span></button>
+    <button class="weapon-card" data-weapon="knife"><b>KNIFE</b><span>نبرد نزدیک</span></button>
+  </div>
+  <div class="menu-options"><label>تعداد دشمن‌ها <select id="botCount"><option value="5">۵ دشمن</option><option value="8" selected>۸ دشمن</option><option value="12">۱۲ دشمن</option></select></label><label>سختی <select id="difficulty"><option value="easy">آسان</option><option value="normal" selected>عادی</option><option value="hard">سخت</option></select></label></div>
+  <button id="start" class="primary">START GAME <span>▶</span></button>
+  <p class="small">WASD حرکت · موس هدف‌گیری · کلیک چپ شلیک · راست‌کلیک اسکوپ · 1 تا 6 سلاح · G اسموک · R خشاب · Shift دویدن · Esc توقف</p>
+</section>
+<section id="pause" class="overlay hidden"><div class="brand">COUNTER<span>ARENA</span></div><h2>بازی متوقف شد</h2><p>برای ادامه عملیات کلیک کن</p><button id="resume" class="primary">ادامه</button><button id="backMenu" class="secondary">بازگشت به منو</button></section>
+<section id="result" class="overlay hidden"><div class="brand">COUNTER<span>ARENA</span></div><h2 id="resultTitle">پایان بازی</h2><p id="resultText"></p><button id="again" class="primary">شروع دوباره</button><button id="resultMenu" class="secondary">انتخاب سلاح</button></section>
+<div id="gameWrap"><canvas id="game" width="1280" height="720"></canvas>
+  <div class="topbar"><div><small>COUNTER ARENA</small><b>URBAN COMBAT ZONE</b></div><div class="objective" id="objective">پاکسازی منطقه</div><div class="topright"><i class="dot"></i> OFFLINE MATCH</div></div>
+  <div class="hud-left"><div class="hud-label">HEALTH</div><div class="bar"><i id="healthBar"></i></div><b id="healthNum">100</b><div class="hud-label armorLabel">ARMOR</div><div class="bar armor"><i id="armorBar"></i></div><b id="armorNum">100</b></div>
+  <div class="hud-right"><div class="weaponName" id="weaponName">AWP</div><div class="ammo"><strong id="ammo">10</strong><span>/ <i id="reserve">30</i></span></div><div class="hud-label">AMMO</div><div id="grenadeInfo">SMOKE <b id="smokeCount">2</b> · G</div></div>
+  <div class="crosshair" id="crosshair"><i></i><i></i><i></i><i></i><b></b></div><div class="scope-label">AWP OPTIC · TAP SCOPE TO EXIT</div><div id="hitmarker">✕</div><div class="toast" id="toast"></div><div class="bottom-hint">W A S D <span>MOVE</span>　 MOUSE <span>AIM</span>　 G <span>SMOKE</span>　 R <span>RELOAD</span></div><div class="killfeed" id="killfeed"></div><div class="mini-status" id="enemyStatus">ENEMIES: 8</div>
+  <div id="mobileHud" aria-label="کنترل لمسی بازی">
+    <div id="movePad" class="move-pad"><div class="stick-ring"><div id="stickKnob"></div></div><span>حرکت</span></div>
+    <div class="mobile-actions"><button id="btnScope" class="touch-btn scope-btn">⌖<small>اسکوپ</small></button><button id="btnShoot" class="touch-btn shoot-btn">●<small>شلیک</small></button><button id="btnReload" class="touch-btn">↻<small>خشاب</small></button><button id="btnSmoke" class="touch-btn smoke-btn">☁<small>اسموک</small></button><button id="btnSwap" class="touch-btn">⇄<small>سلاح</small></button><button id="btnRun" class="touch-btn run-btn">»<small>دویدن</small></button></div>
+    <button id="btnPause" class="touch-pause">Ⅱ</button>
+  </div>
+</div><script src="game.js"></script></body></html>
